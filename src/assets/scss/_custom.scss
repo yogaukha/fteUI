@@ -1,7 +1,38 @@
 // Here you can add other styles
+.app-header{
+	height: 64px;
+}
 .app-header .navbar-brand{
-    padding-top: 14px !important;
-    padding-bottom: 14px !important;
-    padding-left: 24px !important;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 23px;
     justify-content: left;
+    width: 220px;
+    margin-right: 12px;
+}
+.header-fixed .app-body{
+	margin-top: 64px;
+}
+.navbar-brand .dashboard-ui {
+	margin-left: 18px;
+	width: 118px;
+	height: 24px;
+	font-family: Lato;
+	font-size: 20px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: -0.3px;
+	color: #97a0af;
+}
+.navbar-brand .dashboard-ui .ui-bold {
+	font-weight: bold;
+	color: black;
+}
+.rectangle-2 {
+	width: 1px;
+	height: 35px;
+	background-color: #dddddd;
+	margin-left: 28px;
 }
