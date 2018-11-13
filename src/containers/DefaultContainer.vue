@@ -5,7 +5,7 @@
       <b-link class="navbar-brand" to="#">
         <img class="navbar-brand-full" src="img/fte-ui/logo-ui.png" alt="Logo UI">
         <img class="navbar-brand-minimized" src="img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
-        <span class="dashboard-ui">Dashboard <span class="ui-bold">UI</span></span>
+        <span class="dashboard-ui">F T E&nbsp;&nbsp;&nbsp;<span class="ui-bold">UI</span></span>
         <span class="rectangle-2"></span>
       </b-link>
       <SidebarToggler class="d-md-down-none" display="lg" />
@@ -16,15 +16,18 @@
       </b-navbar-nav> -->
       <b-navbar-nav class="ml-auto">
         <b-nav-item class="d-md-down-none">
-          <i class="icon-calendar"></i>
+          <i class="fa fa-calendar"></i>
         </b-nav-item>
-        <b-nav-item class="d-md-down-none">
-          <i class="icon-bell"></i>
-          <b-badge pill variant="danger">5</b-badge>
-        </b-nav-item>
-        <!--<b-nav-item class="d-md-down-none">
-          <i class="icon-location-pin"></i>
-        </b-nav-item>-->
+        <b-nav-item-dropdown id="nav2_ddown" extra-toggle-classes="nav-link-custom" no-caret right>
+          <template slot="button-content">
+            <i class="fa fa-bell"></i>
+            <b-badge pill variant="danger">7</b-badge>
+          </template>
+          <b-dropdown-header tag="div" class="text-center"><strong>Anda memiliki 7 pemberitahuan</strong></b-dropdown-header>
+          <b-dropdown-item href="#"><i class="fa fa-thumbs-up"></i> FTE Disetujui</b-dropdown-item>
+          <b-dropdown-item href="#"><i class="fa fa-thumbs-down"></i> FTE Ditolak</b-dropdown-item>
+          <b-dropdown-item href="#">Lihat semua notifikasi</b-dropdown-item>
+        </b-nav-item-dropdown>
         <!-- <DefaultHeaderDropdownAccnt/> -->
       </b-navbar-nav>
       <!-- <AsideToggler class="d-none d-lg-block" /> -->
