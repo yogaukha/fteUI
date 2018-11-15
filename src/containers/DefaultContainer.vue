@@ -17,6 +17,9 @@
       <b-navbar-nav class="ml-auto">
         <b-nav-item class="d-md-down-none">
           <i class="fa fa-calendar"></i>
+          <!-- <v-date-picker mode='range'
+            v-model='selectedDate'>
+          </v-date-picker> -->
         </b-nav-item>
         <b-nav-item-dropdown id="nav2_ddown" extra-toggle-classes="nav-link-custom" no-caret right>
           <template slot="button-content">
@@ -39,7 +42,7 @@
         <SidebarForm/>
         <SidebarNav :navItems="nav"></SidebarNav>
         <SidebarFooter/>
-        <SidebarMinimizer/>
+        <!-- <SidebarMinimizer/> -->
       </AppSidebar>
       <main class="main">
         <Breadcrumb :list="list"/>
@@ -71,6 +74,15 @@ import nav from '@/_nav'
 import { Header as AppHeader, SidebarToggler, Sidebar as AppSidebar, SidebarFooter, SidebarForm, SidebarHeader, SidebarMinimizer, SidebarNav, Aside as AppAside, AsideToggler, Footer as TheFooter, Breadcrumb } from '@coreui/vue'
 import DefaultAside from './DefaultAside'
 import DefaultHeaderDropdownAccnt from './DefaultHeaderDropdownAccnt'
+import Vue from 'vue'
+import {setupCalendar, Calendar, DatePicker} from 'v-calendar'
+import 'v-calendar/lib/v-calendar.min.css'
+
+setupCalendar({
+  firstDayOfWeek: 2,
+})
+
+Vue.component('v-date-picker', DatePicker);
 
 export default {
   name: 'DefaultContainer',
@@ -88,11 +100,15 @@ export default {
     SidebarToggler,
     SidebarHeader,
     SidebarNav,
-    SidebarMinimizer
+    SidebarMinimizer,
   },
   data () {
     return {
-      nav: nav.items
+      nav: nav.items,
+      selectedDate: {
+        start: new Date(),
+        end: new Date()
+      }
     }
   },
   computed: {

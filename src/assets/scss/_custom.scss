@@ -36,3 +36,46 @@
 	background-color: #dddddd;
 	margin-left: 28px;
 }
+.sidebar{
+	background: #172b4d;
+}
+.sidebar .nav-link{
+	opacity: 0.6;
+	font-size: 14px;
+}
+.sidebar .nav-link.active,
+.sidebar .nav-link:hover{
+	background: #ffc400;
+	opacity: 1;
+}
+.sidebar .nav-link.active .nav-icon{
+	color: #ffffff;
+}
+.sidebar .sidebar-nav,
+.sidebar .nav{
+	width: 220px;
+}
+.sidebar .nav-title{
+	background: #8993a4;
+	color: #142542;
+	height: 28px;
+	padding: 6px 16px; 
+	font-family: Lato;
+	font-size: 12px;
+	font-weight: 900;
+}
+html:not([dir="rtl"]) .sidebar {
+    margin-left: -220px;
+}
+
+@media (min-width: 992px){
+	.sidebar-fixed .sidebar {
+		width: 220px;
+	}
+	html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .main,
+	html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .app-footer,
+	html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .main,
+	html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .app-footer {
+	    margin-left: 220px;
+	}
+}
