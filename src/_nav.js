@@ -10,20 +10,36 @@ export default {
       }
     },
     {
-      name: 'Colors',
+      name: 'Home',
       url: '/theme/colors',
-      icon: 'icon-drop'
+      icon: 'icon-home'
     },
     {
-      name: 'Typography',
+      name: 'Master',
       url: '/theme/typography',
-      icon: 'icon-pencil'
+      icon: 'icon-grid'
     },
     {
-      name: 'Charts',
+      name: 'Research Data',
       url: '/charts',
-      icon: 'icon-pie-chart'
+      icon: 'icon-handbag'
     },
+    {
+      name: 'FTE',
+      url: '/charts',
+      icon: 'icon-doc'
+    },
+    {
+      name: 'Payment',
+      url: '/charts',
+      icon: 'icon-wallet'
+    },
+    {
+      name: 'Report',
+      url: '/charts',
+      icon: 'icon-docs'
+    },
+
     // {
     //   name: 'Notifications',
     //   url: '/notifications',

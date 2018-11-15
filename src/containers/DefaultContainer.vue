@@ -38,10 +38,13 @@
     </AppHeader>
     <div class="app-body">
       <AppSidebar fixed>
-        <SidebarHeader/>
-        <SidebarForm/>
+        <div class="sidebar-header">
+          <b-img src="img/fte-ui/avatar.svg" width="58" height="58" center></b-img>
+        </div>
+        <!-- <SidebarHeader/> -->
+        <!-- <SidebarForm/> --> 
         <SidebarNav :navItems="nav"></SidebarNav>
-        <SidebarFooter/>
+        <!-- <SidebarFooter/> -->
         <!-- <SidebarMinimizer/> -->
       </AppSidebar>
       <main class="main">

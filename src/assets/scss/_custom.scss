@@ -1,4 +1,7 @@
 // Here you can add other styles
+button:focus{
+	outline: none;
+}
 .app-header{
 	height: 64px;
 }
@@ -39,6 +42,13 @@
 .sidebar{
 	background: #172b4d;
 }
+.sidebar .sidebar-header{
+	width: 220px;
+	height: 214px;
+	background: url("/img/fte-ui/avatar-bg.png") no-repeat;
+	background-size: contain;
+	padding: 40px 14px 16px 14px;
+}
 .sidebar .nav-link{
 	opacity: 0.6;
 	font-size: 14px;
@@ -51,7 +61,10 @@
 .sidebar .nav-link.active .nav-icon{
 	color: #ffffff;
 }
-.sidebar .sidebar-nav,
+.sidebar .sidebar-nav,{
+	width: 220px;
+	margin-top: -1px;
+}
 .sidebar .nav{
 	width: 220px;
 }
