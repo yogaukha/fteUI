@@ -39,7 +39,28 @@
     <div class="app-body">
       <AppSidebar fixed>
         <div class="sidebar-header">
-          <b-img src="img/fte-ui/avatar.svg" width="58" height="58" center></b-img>
+          <b-img src="img/fte-ui/avatar.svg" center class="user-avatar"></b-img>
+          <div class="user-username">Super Admin</div>
+          <div class="user-action">
+            <div class="user-password">
+              <a href="#">
+                <i class="icon-lock"></i><br>
+                <div class="text-icon">Password</div>
+              </a>
+            </div>
+            <div class="user-profile">
+              <a href="#">
+                <i class="icon-user"></i><br>
+                <div class="text-icon">Profile</div>
+              </a>
+            </div>
+            <div class="user-logout">
+              <a href="#">
+                <i class="icon-power"></i><br>
+                <div class="text-icon">Logout</div>
+              </a>
+            </div>
+          </div>
         </div>
         <!-- <SidebarHeader/> -->
         <!-- <SidebarForm/> --> 
@@ -48,6 +69,7 @@
         <!-- <SidebarMinimizer/> -->
       </AppSidebar>
       <main class="main">
+        <h1 class="title-page">Research Product</h1>
         <Breadcrumb :list="list"/>
         <div class="container-fluid">
           <router-view></router-view>
@@ -60,13 +82,8 @@
     </div>
     <TheFooter>
       <!--footer-->
-      <div>
-        <a href="https://coreui.io">CoreUI</a>
-        <span class="ml-1">&copy; 2018 creativeLabs.</span>
-      </div>
-      <div class="ml-auto">
-        <span class="mr-1">Powered by</span>
-        <a href="https://coreui.io">CoreUI for Vue</a>
+      <div class="text-footer">
+        Hak Cipta &copy; <span class="text-bold">Universitas Indonesia</span>
       </div>
     </TheFooter>
   </div>

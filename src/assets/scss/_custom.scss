@@ -2,6 +2,9 @@
 button:focus{
 	outline: none;
 }
+.main{
+	background: white;
+}
 .app-header{
 	height: 64px;
 }
@@ -45,7 +48,7 @@ button:focus{
 .sidebar .sidebar-header{
 	width: 220px;
 	height: 214px;
-	background: url("/img/fte-ui/avatar-bg.png") no-repeat;
+	background: linear-gradient(to bottom, rgba(45, 76, 119, 0), #142542), url("/img/fte-ui/avatar-bg.png") no-repeat;
 	background-size: contain;
 	padding: 40px 14px 16px 14px;
 }
@@ -79,6 +82,66 @@ button:focus{
 }
 html:not([dir="rtl"]) .sidebar {
     margin-left: -220px;
+}
+.sidebar-header .user-avatar{
+	width: 58px;
+	height: 58px;
+	margin-bottom: 6px;
+}
+.sidebar-header .user-username{
+	font-family: Lato;
+	font-size: 18px;
+	font-weight: normal;
+}
+.sidebar-header .user-action{
+	font-family: Lato;
+	font-size: 18px;
+	font-weight: normal;
+	display: flex;
+	margin-top: 26px;
+	margin-left: 4px;
+}
+.sidebar-header .user-action a{
+	text-decoration: none;
+	color: white;
+}
+.sidebar-header .user-action a div{
+	margin-top: -2px;
+}
+.sidebar-header .text-icon{
+	font-size: 12px;
+}
+.sidebar-header .user-action div.user-profile,
+.sidebar-header .user-action div.user-logout{
+	margin-left: 32px;
+}
+.main .breadcrumb{
+	border: none;
+	font-family: Lato;
+	font-size: 14px;
+	padding-top: 0px;
+}
+.main h1.title-page{
+	font-size: 20px;
+	font-family: Lato;
+	font-weight: bold;
+	margin-left: 16px;
+	margin-top: 24px;
+	margin-bottom: 6px;
+}
+.app-footer{
+    border-top: 1px solid #dce2e6;
+    padding: 0 2rem;
+}
+.app-footer .text-footer{
+	font-family: Lato;
+	font-size: 14px;
+	font-weight: normal;
+  	color: #97a0af;
+}
+.app-footer .text-footer .text-bold{
+	font-weight: bolder;
+	color: black;
 }
 
 @media (min-width: 992px){
