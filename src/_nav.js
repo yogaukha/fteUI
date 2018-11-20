@@ -21,7 +21,7 @@ export default {
     },
     {
       name: 'Research Data',
-      url: '/charts',
+      url: '/research/research-list',
       icon: 'icon-handbag'
     },
     {

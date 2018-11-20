@@ -99,7 +99,7 @@ html:not([dir="rtl"]) .sidebar {
 	font-weight: normal;
 	display: flex;
 	margin-top: 26px;
-	margin-left: 4px;
+	margin-left: 2px;
 }
 .sidebar-header .user-action a{
 	text-decoration: none;
@@ -111,21 +111,24 @@ html:not([dir="rtl"]) .sidebar {
 .sidebar-header .text-icon{
 	font-size: 12px;
 }
-.sidebar-header .user-action div.user-profile,
+.sidebar-header .user-action div.user-profile{
+	margin-left: 34px;
+}
 .sidebar-header .user-action div.user-logout{
-	margin-left: 32px;
+	margin-left: 36px;
 }
 .main .breadcrumb{
 	border: none;
 	font-family: Lato;
 	font-size: 14px;
 	padding-top: 0px;
+	padding-left: 26px;
 }
 .main h1.title-page{
 	font-size: 20px;
 	font-family: Lato;
 	font-weight: bold;
-	margin-left: 16px;
+	margin-left: 26px;
 	margin-top: 24px;
 	margin-bottom: 6px;
 }
@@ -142,6 +145,12 @@ html:not([dir="rtl"]) .sidebar {
 .app-footer .text-footer .text-bold{
 	font-weight: bolder;
 	color: black;
+}
+input.empty{
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
 }
 
 @media (min-width: 992px){

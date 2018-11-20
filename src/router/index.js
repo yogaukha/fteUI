@@ -54,6 +54,8 @@ const Page500 = () => import('@/views/pages/Page500')
 const Login = () => import('@/views/pages/Login')
 const Register = () => import('@/views/pages/Register')
 
+// Views - Pages
+const ResearchList = () => import('@/views/research/ResearchList')
 // Users
 const Users = () => import('@/views/users/Users')
 const User = () => import('@/views/users/User')
@@ -297,6 +299,21 @@ export default new Router({
               path: 'modals',
               name: 'Modals',
               component: Modals
+            }
+          ]
+        },
+        {
+          path: '/research',
+          redirect: '/research/research-list',
+          name: 'Research',
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: 'research-list',
+              name: 'Research List',
+              component: ResearchList
             }
           ]
         }
