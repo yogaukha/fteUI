@@ -56,6 +56,7 @@ const Register = () => import('@/views/pages/Register')
 
 // Views - Pages
 const ResearchList = () => import('@/views/research/ResearchList')
+
 // Users
 const Users = () => import('@/views/users/Users')
 const User = () => import('@/views/users/User')
@@ -89,11 +90,13 @@ export default new Router({
             {
               path: 'colors',
               name: 'Colors',
+              meta: {title: 'Research Colors'},
               component: Colors
             },
             {
               path: 'typography',
               name: 'Typography',
+              meta: {title: 'Research Typography'},
               component: Typography
             }
           ]
@@ -313,6 +316,7 @@ export default new Router({
             {
               path: 'research-list',
               name: 'Research List',
+              meta: {title: 'Research Product'},
               component: ResearchList
             }
           ]

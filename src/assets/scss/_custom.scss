@@ -152,6 +152,13 @@ input.empty{
     font-weight: normal;
     text-decoration: inherit;
 }
+.table th,
+.table td{
+	border: none !important;
+}
+.table td{
+	padding: 10px;
+}
 
 @media (min-width: 992px){
 	.sidebar-fixed .sidebar {

@@ -15,55 +15,85 @@
       </b-col>
     </b-row>
     <div id="research-grid">
-      <v-client-table :data="tableData" :columns="columns" :options="options"></v-client-table>
+      <b-table :items="items" :fields="fields">
+        <template slot="action" slot-scope="row">
+          <!-- We use @click.stop here to prevent a 'row-clicked' event from also happening -->
+          <b-button href="#" variant="warning" size="sm"><i class="fa fa-pencil"></i></b-button>
+          <b-button href="#" variant="danger" size="sm"><i class="fa fa-times"></i></b-button>
+        </template>
+      </b-table>
+      <nav>
+        <b-pagination align="right" :total-rows="totalRows" :per-page="2" v-model="currentPage" prev-text="<" next-text=">"/>
+      </nav>
     </div>
   </div>
 </template>
 
 <script>
-import Vue from 'vue';
-import {ServerTable, ClientTable, Event} from 'vue-tables-2';
+import * as Const from '../../config/Constant'
+import axios from 'axios'
 
-Vue.use(ClientTable, null, false, 'bootstrap4', 'default');
+// axios.defaults.headers.common['Access-Control-Allow-Origin'] = 'https://api.rajaongkir.com/';
 
 export default {
   name: 'ResearchList',
   data () {
     return {
       icon: '\uF002 Search For ...',
-      columns: ['id', 'name', 'age'],
-      tableData: [
-          { id: 1, name: "John", age: "20" },
-          { id: 2, name: "Jane", age: "24" },
-          { id: 3, name: "Susan", age: "16" },
-          { id: 4, name: "Chris", age: "55" },
-          { id: 5, name: "Susan", age: "16" },
-          { id: 6, name: "Chris", age: "55" },
-          { id: 7, name: "Susan", age: "16" },
-          { id: 8, name: "Chris", age: "55" },
-          { id: 9, name: "Susan", age: "16" },
-          { id: 10, name: "Chris", age: "55" },
-          { id: 11, name: "Chris", age: "55" },
-          { id: 12, name: "Susan", age: "16" },
-          { id: 13, name: "Chris", age: "55" },
-          { id: 14, name: "Dan", age: "40" }
+      currentPage: 1,
+      fields: [
+        {key: 'author', sortable: true},
+        {key: 'nip', label: 'NIP', sortable: true},
+        {key: 'title', sortable: true},
+        {key: 'publisher', label: 'Publisher Institue', sortable: true},
+        {key: 'published_date', sortable: true},
+        {key: 'action', label: 'Aksi'},
       ],
-      options: {
-        headings: {
-          id: 'No.',
-          name: 'Name',
-          age: 'Age',
-        },
-        sortable: ['id', 'name', 'age'],
-        filterable: false,
-        perPageValues: []
-      }
+      items: [
+        {author: 'Yoga Nasukha', nip: '198910202001020001', title: 'Item Based Collaborative Filtering on E-Commerce', publisher: 'Fakultas Sains dan Teknik', published_date: '19-10-2018'},
+        {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', publisher: 'Fakultas Ilmu Komputer', published_date: '19-10-2010'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018'},
+        {author: 'Yoga Nasukha', nip: '198910202001020001', title: 'Item Based Collaborative Filtering on E-Commerce', publisher: 'Fakultas Sains dan Teknik', published_date: '19-10-2018'},
+        {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', publisher: 'Fakultas Ilmu Komputer', published_date: '19-10-2010'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018'},
+        {author: 'Yoga Nasukha', nip: '198910202001020001', title: 'Item Based Collaborative Filtering on E-Commerce', publisher: 'Fakultas Sains dan Teknik', published_date: '19-10-2018'},
+        {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', publisher: 'Fakultas Ilmu Komputer', published_date: '19-10-2010'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018'},
+      ]
     }
   },
+  computed: {
+    totalRows: function () { return this.getRowCount() },
+  },
   methods: {
-    click () {
-      // do nothing
+    getRowCount: function () {
+      console.log(this.items.length);
+      return this.items.length
     }
+    // click () {
+      // do nothing
+    // }
+  },
+  mounted() {
+    // axios.get(Const.BASEURL + 'city', {
+    //   params: {
+    //     province: 10,
+    //     key: '1b209427659178e861d8b581a3a9ac6e',
+    //   },
+    // })
+    // .then(function (response) {
+    //   console.log(response.results.province);
+    // })
+    // .catch(function (error) {
+    //   // console.log(error);
+    // })
+    // .then(function () {
+    //   // always executed
+    // });  
   }
 }
 </script>

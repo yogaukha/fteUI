@@ -69,7 +69,7 @@
         <!-- <SidebarMinimizer/> -->
       </AppSidebar>
       <main class="main">
-        <h1 class="title-page">Research Product</h1>
+        <h1 class="title-page">{{title}}</h1>
         <Breadcrumb :list="list"/>
         <div class="container-fluid">
           <router-view></router-view>
@@ -115,11 +115,7 @@ export default {
   },
   data () {
     return {
-      nav: nav.items,
-      selectedDate: {
-        start: new Date(),
-        end: new Date()
-      }
+      nav: nav.items
     }
   },
   computed: {
@@ -128,6 +124,9 @@ export default {
     },
     list () {
       return this.$route.matched.filter((route) => route.name || route.meta.label )
+    },
+    title () {
+      return this.$route.meta.title
     }
   }
 }
