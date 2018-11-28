@@ -15,7 +15,7 @@
       </b-col>
     </b-row>
     <div id="research-grid">
-      <b-table show-empty :items="items" :fields="fields" :per-page="perPage" :current-page="currentPage" :filter="filter" @filtered="onFiltered">
+      <b-table show-empty :items="items" :fields="fields" :per-page="perPage" :current-page="currentPage" :filter="filter" @filtered="onFiltered" @row-dblclicked="viewResearch" hover>
         <template slot="action" slot-scope="row">
           <!-- We use @click.stop here to prevent a 'row-clicked' event from also happening -->
           <b-button href="#" variant="warning" size="sm"><i class="fa fa-pencil"></i></b-button>
@@ -57,6 +57,7 @@ export default {
       icon: '\uF002 Search For ...',
       items: items,
       fields: [
+        // {key: 'Id', thClass: 'd-none', tdClass: 'd-none' }, save for later to have a row-id / row-uuid
         {key: 'author', sortable: true},
         {key: 'nip', label: 'NIP', sortable: true},
         {key: 'title', sortable: true},
@@ -78,7 +79,11 @@ export default {
       // Trigger pagination to update the number of buttons/pages due to filtering
       this.totalRows = filteredItems.length
       this.currentPage = 1
-    }
+    },
+    viewResearch(r, i, e) {
+      console.log(JSON.stringify(r))
+      // TODO, redirect to view detail
+    },
     // click () {
       // do nothing
     // }
