@@ -5,7 +5,7 @@
         <!-- <b-form> -->
           <b-form-group>
             <b-input-group>
-              <b-form-input type="text" :placeholder="icon" class="empty"></b-form-input>
+              <b-form-input type="text" :placeholder="icon" class="empty" v-model="filter"></b-form-input>
             </b-input-group>
           </b-form-group>
         <!-- </b-form> -->
@@ -15,7 +15,7 @@
       </b-col>
     </b-row>
     <div id="research-grid">
-      <b-table :items="items" :fields="fields">
+      <b-table show-empty :items="items" :fields="fields" :per-page="perPage" :current-page="currentPage" :filter="filter" @filtered="onFiltered">
         <template slot="action" slot-scope="row">
           <!-- We use @click.stop here to prevent a 'row-clicked' event from also happening -->
           <b-button href="#" variant="warning" size="sm"><i class="fa fa-pencil"></i></b-button>
@@ -23,7 +23,7 @@
         </template>
       </b-table>
       <nav>
-        <b-pagination align="right" :total-rows="totalRows" :per-page="2" v-model="currentPage" prev-text="<" next-text=">"/>
+        <b-pagination align="right" :total-rows="totalRows" :per-page="perPage" v-model="currentPage" prev-text="<" next-text=">"/>
       </nav>
     </div>
   </div>
@@ -34,22 +34,7 @@ import * as Const from '../../config/Constant'
 import axios from 'axios'
 
 // axios.defaults.headers.common['Access-Control-Allow-Origin'] = 'https://api.rajaongkir.com/';
-
-export default {
-  name: 'ResearchList',
-  data () {
-    return {
-      icon: '\uF002 Search For ...',
-      currentPage: 1,
-      fields: [
-        {key: 'author', sortable: true},
-        {key: 'nip', label: 'NIP', sortable: true},
-        {key: 'title', sortable: true},
-        {key: 'publisher', label: 'Publisher Institue', sortable: true},
-        {key: 'published_date', sortable: true},
-        {key: 'action', label: 'Aksi'},
-      ],
-      items: [
+const items = [
         {author: 'Yoga Nasukha', nip: '198910202001020001', title: 'Item Based Collaborative Filtering on E-Commerce', publisher: 'Fakultas Sains dan Teknik', published_date: '19-10-2018'},
         {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', publisher: 'Fakultas Ilmu Komputer', published_date: '19-10-2010'},
         {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018'},
@@ -64,15 +49,35 @@ export default {
         {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', publisher: 'Fakultas Ilmu Komputer', published_date: '19-10-2010'},
         {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018'},
       ]
+
+export default {
+  name: 'ResearchList',
+  data () {
+    return {
+      icon: '\uF002 Search For ...',
+      items: items,
+      fields: [
+        {key: 'author', sortable: true},
+        {key: 'nip', label: 'NIP', sortable: true},
+        {key: 'title', sortable: true},
+        {key: 'publisher', label: 'Publisher Institue', sortable: true},
+        {key: 'published_date', sortable: true},
+        {key: 'action', label: 'Aksi'},
+      ],
+      currentPage: 1,
+      perPage: 5,
+      totalRows: items.length,
+      filter: null,
     }
   },
   computed: {
-    totalRows: function () { return this.getRowCount() },
+
   },
   methods: {
-    getRowCount: function () {
-      console.log(this.items.length);
-      return this.items.length
+    onFiltered (filteredItems) {
+      // Trigger pagination to update the number of buttons/pages due to filtering
+      this.totalRows = filteredItems.length
+      this.currentPage = 1
     }
     // click () {
       // do nothing
