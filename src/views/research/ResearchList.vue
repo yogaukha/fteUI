@@ -11,7 +11,7 @@
         <!-- </b-form> -->
       </b-col>
       <b-col md="4" offset-md="5">
-        <b-btn variant="primary" size="md" href="/research/add-research" class="pull-right">+ Tambah Research Product</b-btn>
+        <b-btn variant="primary" size="md" href="#/research/research-add" class="pull-right">+ Tambah Research Product</b-btn>
       </b-col>
     </b-row>
     <div id="research-grid">

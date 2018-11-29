@@ -163,6 +163,12 @@ input.empty{
 	background-color: #d4d4d4;
 }
 
+
+
+.dropdown-toggle::after{
+	display: none;
+}
+
 @media (min-width: 992px){
 	.sidebar-fixed .sidebar {
 		width: 220px;

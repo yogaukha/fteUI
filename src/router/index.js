@@ -57,6 +57,7 @@ const Register = () => import('@/views/pages/Register')
 // Views - Pages
 const ResearchList = () => import('@/views/research/ResearchList')
 const ResearchView = () => import('@/views/research/ResearchView')
+const ResearchForm = () => import('@/views/research/ResearchForm')
 
 // Users
 const Users = () => import('@/views/users/Users')
@@ -325,6 +326,12 @@ export default new Router({
               name: 'View Research',
               meta: {title: 'Research Product'},
               component: ResearchView
+            },
+            {
+              path: 'research-add',
+              name: 'Add Research',
+              meta: {title: 'Research Product'},
+              component: ResearchForm
             }
           ]
         }
