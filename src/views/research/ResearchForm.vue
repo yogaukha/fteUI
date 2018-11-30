@@ -29,18 +29,26 @@
         <b-form-group label="Published Date" horizontal :label-cols="2">
           <!-- <b-form-input type="text" v-model="publishedDate"></b-form-input> -->
           <b-row>
-            <b-col sm="5">
-              <v-date-picker v-model='myDate' popoverVisibility="focus" popoverDirection="top"></v-date-picker>
+            <b-col sm="3">
+              <v-date-picker v-model='myDate' :show-day-popover="false" popoverVisibility="focus" popoverDirection="top" @input="handleInput">
+                <div slot-scope="props">
+                    <input type="text" class="form-control"
+                      placeholder="Pilih Tanggal Publish"
+                      :value="props.inputValue"
+                     readonly/>
+                   </div>
+              </v-date-picker>
             </b-col>
           </b-row>
         </b-form-group>
-        <b-form-group label="Source" horizontal :label-cols="2">
+        <!-- <b-form-group label="Source" horizontal :label-cols="2">
           <b-row>
             <b-col sm="5">
               <b-form-input type="text" v-model="source" placeholder="Enter Source"></b-form-input>
             </b-col>
           </b-row>
-        </b-form-group>
+        </b-form-group> -->
+        <b-button type="submit" variant="primary">Submit</b-button>
       </b-form>
     </div>
   </div>
@@ -61,6 +69,23 @@ setupCalendar({
 
 export default {
   name: 'ResearchForm',
+  props: {
+    value: {
+      type: Object
+    },
+  },
+
+  watch: {
+    value: function (value) {
+      this.selectedDates = value;
+    }
+  },
+
+  model: {
+    prop: 'value',
+    event: 'input'
+  },
+
   data () {
     return {
       icon: '\uF002 Search For ...',
@@ -94,6 +119,10 @@ export default {
 
   },
   methods: {
+    handleInput(e) {
+        this.$emit('input', this.myDate);
+        this.$emit('changed');
+    },
     // click () {
       // do nothing
     // }
@@ -117,3 +146,23 @@ export default {
   }
 }
 </script>
+
+<style type="text/css">
+/*.popover-container input{
+  display: block;
+  width: 100%;
+  height: calc(2.0625rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #5c6873;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #e4e7ea;
+  border-radius: 0.25rem;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}*/
+</style>
