@@ -82,6 +82,7 @@ export default {
     },
     viewResearch(r, i, e) {
       console.log(JSON.stringify(r))
+      this.$router.push("research-view")
       // TODO, redirect to view detail
     },
     // click () {

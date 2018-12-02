@@ -1,6 +1,6 @@
 <template>
   <div class="animated fadeIn">
-    <div id="research-view">
+    <div id="initial-verif-view">
       <b-form>
         <b-form-group label="Title" horizontal :label-cols="2">
           <b-form-input type="text" v-model="title" readonly></b-form-input>
@@ -39,6 +39,12 @@
         <b-form-group label="Source" horizontal :label-cols="2">
           <b-form-input type="text" v-model="source" readonly></b-form-input>
         </b-form-group>
+        <b-form-group label="FTE Status" horizontal :label-cols="2">
+          <b-form-input type="text" v-model="fteStatus" readonly></b-form-input>
+        </b-form-group>
+        <b-form-group label="Verification Status" horizontal :label-cols="2">
+          <b-form-input type="text" v-model="verifStatus" readonly></b-form-input>
+        </b-form-group>
       </b-form>
       <b-button @click="goBack" variant="primary">&laquo; Kembali</b-button>
     </div>
@@ -47,7 +53,7 @@
 
 <script>
 export default {
-  name: 'ResearchView',
+  name: 'InitialVerifView',
   data () {
     return {
       icon: '\uF002 Search For ...',
@@ -62,6 +68,8 @@ export default {
       publisher: 'Fakultas Sains dan Teknik',
       publishedDate: '19-10-2018',
       source: 'Manual',
+      fteStatus: 'T',
+      verifStatus: 'Terverifikasi',
     }
   },
   computed: {
@@ -69,7 +77,7 @@ export default {
   },
   methods: {
     goBack () {
-      this.$router.push('research-list');
+      this.$router.push('initial-verif-list');
     }
   },
   mounted() {

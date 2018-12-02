@@ -54,10 +54,15 @@ const Page500 = () => import('@/views/pages/Page500')
 const Login = () => import('@/views/pages/Login')
 const Register = () => import('@/views/pages/Register')
 
-// Views - Pages
+// Views - Research
 const ResearchList = () => import('@/views/research/ResearchList')
 const ResearchView = () => import('@/views/research/ResearchView')
 const ResearchForm = () => import('@/views/research/ResearchForm')
+
+// Views - Initial Verification
+const InitialVerifList = () => import('@/views/initial/InitialVerifList')
+const InitialVerifView = () => import('@/views/initial/InitialVerifView')
+const InitialVerifForm = () => import('@/views/initial/InitialVerifForm')
 
 // Users
 const Users = () => import('@/views/users/Users')
@@ -334,7 +339,35 @@ export default new Router({
               component: ResearchForm
             }
           ]
-        }
+        },
+        {
+          path: '/initial',
+          redirect: '/initial/initial-verif-list',
+          name: 'Initial Verification',
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: 'initial-verif-list',
+              name: 'Initial Verification List',
+              meta: {title: 'Initial Verification'},
+              component: InitialVerifList
+            },
+            {
+              path: 'initial-verif-view',
+              name: 'View Initial Verification',
+              meta: {title: 'Initial Verification'},
+              component: InitialVerifView
+            },
+            {
+              path: 'initial-verif-edit',
+              name: 'Edit Initial Verification',
+              meta: {title: 'Initial Verification'},
+              component: InitialVerifForm
+            }
+          ]
+        },
       ]
     },
     {
