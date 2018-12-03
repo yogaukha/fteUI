@@ -62,7 +62,7 @@ import { setupCalendar, DatePicker, Calendar} from 'v-calendar'
 import 'v-calendar/lib/v-calendar.min.css'
 
 Vue.component('v-select', vSelect)
-Vue.component('v-date-picker', DatePicker);
+Vue.component('v-date-picker', DatePicker)
 
 setupCalendar({
   firstDayOfWeek: 2

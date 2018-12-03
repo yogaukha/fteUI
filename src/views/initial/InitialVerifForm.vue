@@ -11,18 +11,18 @@
         <b-form-group label="First Author" horizontal :label-cols="2">
           <b-row>
             <b-col sm="7">
-              <v-select v-model="selectedFirstAuthor" :options="firstAuthorOptions"></v-select>
+              <v-select disabled v-model="selectedFirstAuthor" :options="firstAuthorOptions"></v-select>
             </b-col>
           </b-row>
           <!-- <b-form-select v-model="selectedFirstAuthor" :options="firstAuthorOptions" class="col-md-5" /> -->
         </b-form-group>
         <b-form-group label="Other Author" horizontal :label-cols="2">
-          <v-select multiple v-model="selectedOtherAuthor" :options="otherAuthorOptions"></v-select>
+          <v-select disabled multiple v-model="selectedOtherAuthor" :options="otherAuthorOptions"></v-select>
         </b-form-group>
         <b-form-group label="Publisher Institue" horizontal :label-cols="2">
           <b-row>
             <b-col sm="5">
-              <b-form-input type="text" v-model="publisher" placeholder="Enter Publisher Institue"></b-form-input>
+              <b-form-input type="text" v-model="publisher" placeholder="Enter Publisher Institue" readonly></b-form-input>
             </b-col>
           </b-row>
         </b-form-group>
@@ -38,6 +38,16 @@
                      readonly/>
                    </div>
               </v-date-picker>
+            </b-col>
+          </b-row>
+        </b-form-group>
+        <b-form-group label="FTE Status" horizontal :label-cols="2">
+          <b-form-checkbox v-model="fteStatus" value="Y" unchecked-value="T"></b-form-checkbox>
+        </b-form-group>
+        <b-form-group label="Verification Status" horizontal :label-cols="2">
+          <b-row>
+            <b-col sm="5">
+              <b-form-input type="text" v-model="verifStatus" placeholder="Enter Verification Status" readonly></b-form-input>
             </b-col>
           </b-row>
         </b-form-group>
@@ -62,7 +72,7 @@ import { setupCalendar, DatePicker, Calendar} from 'v-calendar'
 import 'v-calendar/lib/v-calendar.min.css'
 
 Vue.component('v-select', vSelect)
-Vue.component('v-date-picker', DatePicker);
+Vue.component('v-date-picker', DatePicker)
 
 setupCalendar({
   firstDayOfWeek: 2
