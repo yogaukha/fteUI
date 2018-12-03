@@ -64,11 +64,15 @@ const InitialVerifList = () => import('@/views/initial/InitialVerifList')
 const InitialVerifView = () => import('@/views/initial/InitialVerifView')
 const InitialVerifForm = () => import('@/views/initial/InitialVerifForm')
 
-// Views - FTE Verification
+// Views - FTE Product Verification
 const FteVerifList = () => import('@/views/fte-verif/FteVerifList')
 const FteVerifView = () => import('@/views/fte-verif/FteVerifView')
 const FteVerifForm = () => import('@/views/fte-verif/FteVerifForm')
-// const InitialVerifForm = () => import('@/views/initial/InitialVerifForm')
+
+// Views - FTE Product
+const FteProductList = () => import('@/views/fte-product/FteProductList')
+const FteProductView = () => import('@/views/fte-product/FteProductView')
+const FteProductForm = () => import('@/views/fte-product/FteProductForm')
 
 // Users
 const Users = () => import('@/views/users/Users')
@@ -377,7 +381,7 @@ export default new Router({
         {
           path: '/fte-verif',
           redirect: '/fte-verif/fte-verif-list',
-          name: 'Initial Verification',
+          name: 'FTE Product Verification',
           component: {
             render (c) { return c('router-view') }
           },
@@ -399,6 +403,34 @@ export default new Router({
               name: 'Edit FTE Product Verification',
               meta: {title: 'FTE Product Verification'},
               component: FteVerifForm
+            }
+          ]
+        },
+        {
+          path: '/fte-product',
+          redirect: '/fte-product/fte-product-list',
+          name: 'FTE Product',
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: 'fte-product-list',
+              name: 'FTE Product List',
+              meta: {title: 'FTE Product'},
+              component: FteProductList
+            },
+            {
+              path: 'fte-product-view',
+              name: 'View FTE Product List',
+              meta: {title: 'FTE Product'},
+              component: FteProductView
+            },
+            {
+              path: 'fte-product-edit',
+              name: 'Edit FTE Product',
+              meta: {title: 'FTE Product'},
+              component: FteProductForm
             }
           ]
         },

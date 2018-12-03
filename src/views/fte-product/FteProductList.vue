@@ -35,19 +35,19 @@ import axios from 'axios'
 
 // axios.defaults.headers.common['Access-Control-Allow-Origin'] = 'https://api.rajaongkir.com/';
 const items = [
-        {author: 'Yoga Nasukha', nip: '198910202001020001', title: 'Item Based Collaborative Filtering on E-Commerce', author_status: 'First Author', document_type: 'Jurnal Penelitian', sks_equivalent: '3'},
-        {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', author_status: 'First Author', document_type: 'Esai', sks_equivalent: '2'},
-        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', author_status: 'First Author', document_type: 'Artikel', sks_equivalent: '1'},
-        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', author_status: 'First Author', document_type: 'Conference Proceeding', sks_equivalent: '2'},
-        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', author_status: 'First Author', document_type: 'Buku', sks_equivalent: '4'},
-        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', author_status: 'First Author', document_type: 'Hak Cipta Bersertifikat', sks_equivalent: '2'},
-        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', author_status: 'First Author', document_type: 'Artikel Internasional', sks_equivalent: '3'},
-        {author: 'Yoga Nasukha', nip: '198910202001020001', title: 'Item Based Collaborative Filtering on E-Commerce', author_status: 'First Author', document_type: 'Proceeding', sks_equivalent: '1'},
-        {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', author_status: 'First Author', document_type: 'Buku Chapter I', sks_equivalent: '3'},
-        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', author_status: 'First Author', document_type: 'Artikel Internasional', sks_equivalent: '2'},
-        {author: 'Yoga Nasukha', nip: '198910202001020001', title: 'Item Based Collaborative Filtering on E-Commerce', author_status: 'First Author', document_type: 'Conference Proceeding', sks_equivalent: '4'},
-        {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', author_status: 'First Author', document_type: 'Paten', sks_equivalent: '1'},
-        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', author_status: 'First Author', document_type: 'Paper', sks_equivalent: '3'},
+        {author: 'Yoga Nasukha', nip: '198910202001020001', title: 'Item Based Collaborative Filtering on E-Commerce', author_status: 'First Author', sks_equivalent: '3', payment_status: 'Paid'},
+        {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', author_status: 'First Author', sks_equivalent: '2', payment_status: 'Not Paid'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', author_status: 'First Author', sks_equivalent: '1', payment_status: 'Paid'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', author_status: 'First Author', sks_equivalent: '2', payment_status: 'Paid'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', author_status: 'First Author', sks_equivalent: '4', payment_status: 'Not Paid'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', author_status: 'First Author', sks_equivalent: '2', payment_status: 'Paid'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', author_status: 'First Author', sks_equivalent: '3', payment_status: 'Not Paid'},
+        {author: 'Yoga Nasukha', nip: '198910202001020001', title: 'Item Based Collaborative Filtering on E-Commerce', author_status: 'First Author', sks_equivalent: '1', payment_status: 'Paid'},
+        {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', author_status: 'First Author', sks_equivalent: '3', payment_status: 'Not Paid'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', author_status: 'First Author', sks_equivalent: '2', payment_status: 'Paid'},
+        {author: 'Yoga Nasukha', nip: '198910202001020001', title: 'Item Based Collaborative Filtering on E-Commerce', author_status: 'First Author', sks_equivalent: '4', payment_status: 'Not Paid'},
+        {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', author_status: 'First Author', sks_equivalent: '1', payment_status: 'Not Paid'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', author_status: 'First Author', sks_equivalent: '3', payment_status: 'Paid'},
       ]
 
 export default {
@@ -62,8 +62,8 @@ export default {
         {key: 'nip', label: 'NIP', sortable: true},
         {key: 'title', sortable: true},
         {key: 'author_status', sortable: true},
-        {key: 'document_type', sortable: true},
         {key: 'sks_equivalent', label: 'SKS Equivalent', sortable: true},
+        {key: 'payment_status', sortable: true},
         {key: 'action', label: 'Aksi'},
       ],
       currentPage: 1,
@@ -83,11 +83,11 @@ export default {
     },
     viewResearch(r, i, e) {
       console.log(JSON.stringify(r))
-      this.$router.push("fte-verif-view")
+      this.$router.push("fte-product-view")
       // TODO, redirect to view detail
     },
     editData () {
-      this.$router.push("fte-verif-edit")
+      this.$router.push("fte-product-edit")
     }
   },
   mounted() {

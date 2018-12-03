@@ -136,7 +136,6 @@ export default {
         {value: 'essay', label: 'Essay'},
         {value: 'proceeding', label: 'Proceeding'},
       ],
-      myDate: null,
     }
   },
   computed: {
