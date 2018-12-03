@@ -64,6 +64,12 @@ const InitialVerifList = () => import('@/views/initial/InitialVerifList')
 const InitialVerifView = () => import('@/views/initial/InitialVerifView')
 const InitialVerifForm = () => import('@/views/initial/InitialVerifForm')
 
+// Views - FTE Verification
+const FteVerifList = () => import('@/views/fte-verif/FteVerifList')
+const FteVerifView = () => import('@/views/fte-verif/FteVerifView')
+const FteVerifForm = () => import('@/views/fte-verif/FteVerifForm')
+// const InitialVerifForm = () => import('@/views/initial/InitialVerifForm')
+
 // Users
 const Users = () => import('@/views/users/Users')
 const User = () => import('@/views/users/User')
@@ -365,6 +371,34 @@ export default new Router({
               name: 'Edit Initial Verification',
               meta: {title: 'Initial Verification'},
               component: InitialVerifForm
+            }
+          ]
+        },
+        {
+          path: '/fte-verif',
+          redirect: '/fte-verif/fte-verif-list',
+          name: 'Initial Verification',
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: 'fte-verif-list',
+              name: 'FTE Verification List',
+              meta: {title: 'FTE Product Verification'},
+              component: FteVerifList
+            },
+            {
+              path: 'fte-verif-view',
+              name: 'View FTE Verification List',
+              meta: {title: 'FTE Product Verification'},
+              component: FteVerifView
+            },
+            {
+              path: 'fte-verif-edit',
+              name: 'Edit FTE Product Verification',
+              meta: {title: 'FTE Product Verification'},
+              component: FteVerifForm
             }
           ]
         },

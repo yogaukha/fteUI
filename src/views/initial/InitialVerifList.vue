@@ -35,19 +35,19 @@ import axios from 'axios'
 
 // axios.defaults.headers.common['Access-Control-Allow-Origin'] = 'https://api.rajaongkir.com/';
 const items = [
-        {author: 'Yoga Nasukha', nip: '198910202001020001', title: 'Item Based Collaborative Filtering on E-Commerce', publisher: 'Fakultas Sains dan Teknik', published_date: '19-10-2018', fte_status: 'T', verif_status: 'Proses Verifikasi'},
-        {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', publisher: 'Fakultas Ilmu Komputer', published_date: '19-10-2010', fte_status: 'Y', verif_status: 'Terverifikasi'},
-        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018', fte_status: 'T', verif_status: 'Belum Verifikasi'},
-        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018', fte_status: 'T', verif_status: 'Terverifikasi'},
-        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018', fte_status: 'T', verif_status: 'Terverifikasi'},
-        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018', fte_status: 'Y', verif_status: 'Terverifikasi'},
-        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018', fte_status: 'Y', verif_status: 'Terverifikasi'},
-        {author: 'Yoga Nasukha', nip: '198910202001020001', title: 'Item Based Collaborative Filtering on E-Commerce', publisher: 'Fakultas Sains dan Teknik', published_date: '19-10-2018', fte_status: 'Y', verif_status: 'Terverifikasi'},
-        {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', publisher: 'Fakultas Ilmu Komputer', published_date: '19-10-2010', fte_status: 'Y', verif_status: 'Terverifikasi'},
-        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018', fte_status: 'Y', verif_status: 'Terverifikasi'},
-        {author: 'Yoga Nasukha', nip: '198910202001020001', title: 'Item Based Collaborative Filtering on E-Commerce', publisher: 'Fakultas Sains dan Teknik', published_date: '19-10-2018', fte_status: 'Y', verif_status: 'Terverifikasi'},
-        {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', publisher: 'Fakultas Ilmu Komputer', published_date: '19-10-2010', fte_status: 'Y', verif_status: 'Terverifikasi'},
-        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018', fte_status: 'Y', verif_status: 'Terverifikasi'},
+        {author: 'Yoga Nasukha', nip: '198910202001020001', title: 'Item Based Collaborative Filtering on E-Commerce', publisher: 'Fakultas Sains dan Teknik', published_date: '19-10-2018', fte_status: 'T', verif_status: 'Initial Verification'},
+        {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', publisher: 'Fakultas Ilmu Komputer', published_date: '19-10-2010', fte_status: 'Y', verif_status: 'Initial Verification'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018', fte_status: 'T', verif_status: 'Initial Verification'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018', fte_status: 'T', verif_status: 'Initial Verification'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018', fte_status: 'T', verif_status: 'Initial Verification'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018', fte_status: 'Y', verif_status: 'Initial Verification'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018', fte_status: 'Y', verif_status: 'Initial Verification'},
+        {author: 'Yoga Nasukha', nip: '198910202001020001', title: 'Item Based Collaborative Filtering on E-Commerce', publisher: 'Fakultas Sains dan Teknik', published_date: '19-10-2018', fte_status: 'Y', verif_status: 'Initial Verification'},
+        {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', publisher: 'Fakultas Ilmu Komputer', published_date: '19-10-2010', fte_status: 'Y', verif_status: 'Initial Verification'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018', fte_status: 'Y', verif_status: 'Initial Verification'},
+        {author: 'Yoga Nasukha', nip: '198910202001020001', title: 'Item Based Collaborative Filtering on E-Commerce', publisher: 'Fakultas Sains dan Teknik', published_date: '19-10-2018', fte_status: 'Y', verif_status: 'Initial Verification'},
+        {author: 'Dendi Rohandy', nip: '197011101996040002', title: 'Managing Scrum in All Aspect of Life', publisher: 'Fakultas Ilmu Komputer', published_date: '19-10-2010', fte_status: 'Y', verif_status: 'Initial Verification'},
+        {author: 'Akbar Hariadi', nip: '199509142005010001', title: 'Defining The Truth of Vue JS', publisher: 'Fakultas Ilmu Komputer', published_date: '19-11-2018', fte_status: 'Y', verif_status: 'Initial Verification'},
       ]
 
 export default {

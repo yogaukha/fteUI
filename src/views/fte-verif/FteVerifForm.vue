@@ -2,22 +2,22 @@
   <div class="animated fadeIn">
     <div id="initial-verif-form">
       <b-form>
+        <b-form-group label="Author" horizontal :label-cols="2">
+          <b-row>
+            <b-col sm="7">
+              <v-select disabled v-model="selectedAuthor" :options="authorOptions"></v-select>
+            </b-col>
+          </b-row>
+          <!-- <b-form-select v-model="selectedFirstAuthor" :options="firstAuthorOptions" class="col-md-5" /> -->
+        </b-form-group>
+        <b-form-group label="Author Status" horizontal :label-cols="2">
+          <b-form-select v-model="authorStatus" :options="authorStatusOptions" class="col-md-3" disabled />
+        </b-form-group>
         <b-form-group label="Title" horizontal :label-cols="2">
           <b-form-input type="text" v-model="title" placeholder="Enter Title" readonly></b-form-input>
         </b-form-group>
         <b-form-group label="Description" horizontal :label-cols="2">
           <b-form-textarea v-model="description" rows="2" :max-rows="3" placeholder="Enter Description" readonly></b-form-textarea>
-        </b-form-group>
-        <b-form-group label="First Author" horizontal :label-cols="2">
-          <b-row>
-            <b-col sm="7">
-              <v-select disabled v-model="selectedFirstAuthor" :options="firstAuthorOptions"></v-select>
-            </b-col>
-          </b-row>
-          <!-- <b-form-select v-model="selectedFirstAuthor" :options="firstAuthorOptions" class="col-md-5" /> -->
-        </b-form-group>
-        <b-form-group label="Other Author" horizontal :label-cols="2">
-          <v-select disabled multiple v-model="selectedOtherAuthor" :options="otherAuthorOptions"></v-select>
         </b-form-group>
         <b-form-group label="Publisher Institue" horizontal :label-cols="2">
           <b-row>
@@ -44,6 +44,14 @@
         <b-form-group label="FTE Product" horizontal :label-cols="2">
           <b-form-checkbox v-model="fteStatus" value="Y" unchecked-value="T"></b-form-checkbox>
         </b-form-group>
+        <b-form-group label="Research Type" horizontal :label-cols="2">
+          <b-row>
+            <b-col sm="7">
+              <v-select v-model="selectedResearchType" :options="researchTypeOptions"></v-select>
+            </b-col>
+          </b-row>
+          <!-- <b-form-select v-model="selectedFirstAuthor" :options="firstAuthorOptions" class="col-md-5" /> -->
+        </b-form-group>
         <b-form-group label="Verification Status" horizontal :label-cols="2">
           <b-row>
             <b-col sm="5">
@@ -59,7 +67,7 @@
           </b-row>
         </b-form-group> -->
         <b-button type="submit" variant="success">Simpan</b-button>&nbsp;
-        <b-button href="#/initial" variant="outline-primary">Batal</b-button>
+        <b-button href="#/fte-verif" variant="outline-primary">Batal</b-button>
       </b-form>
     </div>
   </div>
@@ -79,7 +87,7 @@ setupCalendar({
 });
 
 export default {
-  name: 'InitialVerifForm',
+  name: 'FteVerifForm',
   props: {
     value: {
       type: Object
@@ -112,20 +120,21 @@ export default {
       myDate: new Date(2018, 11, 2),
       fteStatus: 'T',
       verifStatus: 'Initial Verification',
-      selectedFirstAuthor: '198910202001020001 - Yoga Nasukha',
-      selectedOtherAuthor: [
-        {value: '197011101996040002', label: '197011101996040002 - Dendi Rohandy'},
-        {value: '199509142005010001', label: '199509142005010001 - Akbar Hariadi'},
+      selectedAuthor: '198910202001020001 - Yoga Nasukha',
+      authorOptions: null,
+      authorStatus: 'first',
+      authorStatusOptions: [
+        {value: null, text: 'Pilih Author Status'},
+        {value: 'first', text: 'First Author'},
+        {value: 'other', text: 'Other Author'},
       ],
-      firstAuthorOptions: [
-        {value: '198910202001020001', label: '198910202001020001 - Yoga Nasukha'},
-        {value: '197011101996040002', label: '197011101996040002 - Dendi Rohandy'},
-        {value: '199509142005010001', label: '199509142005010001 - Akbar Hariadi'},
-      ],
-      otherAuthorOptions: [
-        {value: '198910202001020001', label: '198910202001020001 - Yoga Nasukha'},
-        {value: '197011101996040002', label: '197011101996040002 - Dendi Rohandy'},
-        {value: '199509142005010001', label: '199509142005010001 - Akbar Hariadi'},
+      selectedResearchType: null,
+      researchTypeOptions: [
+        {value: 'journal', label: 'Journal'},
+        {value: 'book', label: 'Book'},
+        {value: 'article', label: 'Article'},
+        {value: 'essay', label: 'Essay'},
+        {value: 'proceeding', label: 'Proceeding'},
       ],
       myDate: null,
     }
