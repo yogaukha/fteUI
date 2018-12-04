@@ -74,6 +74,11 @@ const FteProductList = () => import('@/views/fte-product/FteProductList')
 const FteProductView = () => import('@/views/fte-product/FteProductView')
 const FteProductForm = () => import('@/views/fte-product/FteProductForm')
 
+// Views - FTE Calculation
+const FteCalcList = () => import('@/views/fte-calc/FteCalcList')
+const FteCalcView = () => import('@/views/fte-calc/FteCalcView')
+const FteCalcForm = () => import('@/views/fte-calc/FteCalcForm')
+
 // Users
 const Users = () => import('@/views/users/Users')
 const User = () => import('@/views/users/User')
@@ -431,6 +436,34 @@ export default new Router({
               name: 'Edit FTE Product',
               meta: {title: 'FTE Product'},
               component: FteProductForm
+            }
+          ]
+        },
+        {
+          path: '/fte-calc',
+          redirect: '/fte-calc/fte-calc-list',
+          name: 'FTE Calculation',
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: 'fte-calc-list',
+              name: 'FTE Calculation List',
+              meta: {title: 'FTE Calculation'},
+              component: FteCalcList
+            },
+            {
+              path: 'fte-calc-view',
+              name: 'View FTE Calculation List',
+              meta: {title: 'FTE Calculation'},
+              component: FteCalcView
+            },
+            {
+              path: 'fte-calc-edit',
+              name: 'Edit FTE Calculation',
+              meta: {title: 'FTE Calculation'},
+              component: FteCalcForm
             }
           ]
         },
